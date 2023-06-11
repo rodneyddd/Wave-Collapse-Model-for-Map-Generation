@@ -1,15 +1,12 @@
 # Wave Collapse Map Generations 🗺
 
-This is a project I wanted to try because I am interested in computers randomly performing task for us. The basic idea is you give the computer a 2d map and it will make a randow tile layout. The themes of this project so far are OPP, Pointers and C++.
+I wanted to start this project because I was fascinated by computers executing random jobs for humanity. The fundamental idea is to give the computer a 2D map and it will produce a random tile arrangement. The project is primarily concerned with Object-Oriented Programming (OOP), pointers, and C++.
 
-## Step - 1 😊 C++ / FINISHED 
-The C++ is finally finished. It took a while I had to take a break and come back because my previous approach was not working.(or rather it was to overcomplicated) so i 
-I slimed down my appoarch. I still have the same 2 classes "*Node*" and "*Map*". 
+Step 1: Completed C++
+I finished the C++ section of the project after putting in considerable effort. I had to take a break and rethink my strategy at one point because my previous method proved to be too intricate. As a result, I simplified my approach. The project is centered on two classes: "Node" and "Map."
 
 ### Node
- The node class is node that points to all co-ordinates that are other node and a master node called "*sur_Node*" that point to the other 8 nodes. and has a state and 
-anti state. State beging the possible values the node could be and the anti state being what it can't be. The node also have alot of helper function the standard 
-getters and setters for the private values such as the node state and anti_state. 
+The Node class represents a node that is linked to other nodes using coordinates. It also contains a master node known as "sur_Node," which connects to the other eight nodes. Every node has a state as well as an anti-state. The state specifies the possible values for a node, but the anti-state specifies what it cannot be. Furthermore, the Node class includes a number of assistance functions, such as standard getters and setters for private characteristics such as the node state and anti-state.
 
 </br>
 
@@ -25,19 +22,17 @@ getters and setters for the private values such as the node state and anti_state
         Node** sur_Node;
 ```
 
-  A difference form my original appoarch is that I added 2 new functions "*checkState()*" and "*updateState(Node* node)*". Checkstate is used to update the sur_Nodes
-states base on the change of the current node for example if the node became a 3 then the surrond state should be a {2,3,4} and their anti_states a {1,5}. 
-The differnce of this approach was that i was try to have to map change the sur_node state but it is alot easier to do it locally.
-
+The only difference between my initial approach and this one is that I added two additional functions: *checkState()* and *updateState(Node* node)*. Checkstate is used to update the sur_Nodes states based on the current node's change. For example, if the node became a 3, the surrond state should be a 2,3,4 and their anti_states should be a 1,5. 
+The difference in this approach is that I tried to map change the sur_node state, but it is much easier to do it locally.
 </br>
 
 ### Map
-  The map obj was were some complications arouse. I create a consturctor to make a 2d array based on a user input for size but I was creat in the pointer incorrectly.</br>
+  The map obj was where I had some issues. I create a constructor to make a 2d array based on a user input for size but I was creating the pointer incorrectly.</br>
   ```
   obj*  arr  = new obj[10]   👎 ❌ 
   obj** arr = new obj*[10]   👍 ✔
   ```
-  The map is alot simpler all the hard work is done in the node class (aka the updating of the surronding nodes). The only job the map has is to create the 2d map and start the wave collapse. The wave is now inside of a while loop -> when a position is choosen then the wave start and it update around the node base on that change.
+  The map is significantly simpler because the majority of the hard activities, notably the updating of the surrounding nodes, are done within the node class. The major responsibility of the map is to generate the 2D map and start the wave collapse. The wave collapse method is now contained within a while loop. The wave starts when a position is chosen and spreads to surrounding nodes based on that change.
   
 </br>
 
